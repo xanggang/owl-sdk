@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "lib/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "sdk/**/*.ts",
+    "sdk/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

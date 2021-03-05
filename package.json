@@ -1,0 +1,27 @@
+{
+  "name": "owl-util",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production --config scripts/webpack.config.dev.js",
+    "lint":"eslint --ext .ts sdk",
+    "lint-fix":"eslint --fix --ext .js --ext .jsx --ext .vue client/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.21.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.21.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "html-webpack-plugin": "^5.2.0",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.2.3",
+    "ua-device": "^0.1.10",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  }
+}
