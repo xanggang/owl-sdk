@@ -1,7 +1,8 @@
 import Upload from './Upload'
 import Device from './Device'
 import Performance from './Performance'
-import ErrorHandle from "./ErrorHandle";
+import ErrorHandle from "./ErrorHandle"
+import page from '../package.json'
 
 export interface ILogSdkOptions {
   uploadHost: string
@@ -10,11 +11,11 @@ export interface ILogSdkOptions {
 }
 
 export default class {
-  version: string =  '0.0.0'
-  uploadHost: string = ''
+  version: string = page.version
+  uploadHost = ''
   http: any
   errorWhiteList: any[] = []
-  apiKey: string = ''
+  apiKey = ''
   upload: Upload
   device: Device
 

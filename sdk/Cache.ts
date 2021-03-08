@@ -6,7 +6,7 @@ class Cache {
     const type = data.type
 
     if (type === 'error') {
-      let errorMessage = data?.exception?.values?.[0]?.value
+      const errorMessage = data?.exception?.values?.[0]?.value
       if (this.errorMap[errorMessage]) {
         return false
       } else {
@@ -15,7 +15,7 @@ class Cache {
       }
     }
     if (type === 'api') {
-      let url = data.url
+      const url = data.url
       if (this.errorMap[url]) {
         return false
       } else {

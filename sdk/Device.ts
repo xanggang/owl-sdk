@@ -77,7 +77,7 @@ export default class Device {
     return null
   }
 
-  upInfo () {
+  upInfo (): void {
     const res = Device.getDeviceInfo()
     if (res) {
       this.upload.add({

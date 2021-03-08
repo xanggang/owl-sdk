@@ -99,7 +99,7 @@ function eventFromUnknownInput(
     // If it is plain Object or Event, serialize it manually and extract options
     // This will allow us to group events based on top-level keys
     // which is much better than creating new group when any key/value change
-    const objectException = exception as {};
+    const objectException = exception as Record<string, unknown>
     event = eventFromPlainObject(objectException, syntheticException, options.rejection);
     addExceptionMechanism(event, {
       synthetic: true,

@@ -29,8 +29,8 @@ export default class UserBehavior {
     const clickInfo = this.getClickInfo(e)
 
     if (clickInfo.router === this.lastPath?.path) {
-      let obj = this.lastPath.behavior
-      let happenTime = Math.floor(obj[obj.length - 1].happenTime /1000)
+      const obj = this.lastPath.behavior
+      const happenTime = Math.floor(obj[obj.length - 1].happenTime /1000)
       if (happenTime !== Math.floor(clickInfo.happenTime / 1000)) {
         this.lastPath?.behavior.push(clickInfo)
       }

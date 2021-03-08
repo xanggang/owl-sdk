@@ -3,10 +3,10 @@ export default function globalOnHttpXHRHandler (oldXHR: any, cb: (d: any) => voi
   return () => {
     const realXHR = new oldXHR()
     let requestObj: any = {}
-    let xhr_open = realXHR.open
-    let xhr_send = realXHR.send
-    let headers:any = {}
-    let setRequestHeader = realXHR.setRequestHeader
+    const xhr_open = realXHR.open
+    const xhr_send = realXHR.send
+    const headers:any = {}
+    const setRequestHeader = realXHR.setRequestHeader
     realXHR.open = function (...args: any) {
       requestObj = Object.assign({}, requestObj, {
         method: args[0],

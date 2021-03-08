@@ -65,7 +65,7 @@ export interface Event {
   stacktrace?: Stacktrace;
   breadcrumbs?: Breadcrumb[];
   contexts?: {
-    [key: string]: object;
+    [key: string]: Record<string, unknown>;
   };
   tags?: { [key: string]: string };
   extra?: { [key: string]: any };
