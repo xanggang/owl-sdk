@@ -26,10 +26,20 @@ export default function globalOnHttpXHRHandler (oldXHR: any, cb: (d: any) => voi
       setRequestHeader.apply(this, args)
     }
     realXHR.addEventListener('loadend', (ev: any) => {
-      ev.headers = JSON.stringify(headers)
-      ev.request = JSON.stringify(requestObj)
-      ev.url = requestObj.url
-      cb(ev)
+      const status = ev?.target?.status
+      const headerString = JSON.stringify(headers)
+      const request = JSON.stringify(requestObj)
+      const url = requestObj.url
+      const responseText = ev?.target?.responseText
+      const requestTime = +new Date()
+      cb({
+        status,
+        headers: headerString,
+        request,
+        url,
+        response: responseText,
+        request_time: requestTime,
+      })
     }, false)
     return realXHR
   }

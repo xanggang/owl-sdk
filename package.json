@@ -1,8 +1,8 @@
 {
-  "name": "owl-util",
+  "name": "owl-util-sdk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "webpack --mode production --config scripts/webpack.config.dev.js",
     "lint": "eslint --ext .ts sdk"

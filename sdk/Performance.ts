@@ -2,19 +2,19 @@ import Upload from './Upload'
 
 interface TimingObj {
   // 页面加载完成的时间
-  loadPage: number,
+  load_page: number,
   // 解析 DOM 树结构的时间
-  domReady: number,
+  dom_ready: number,
   // 重定向的时间
   redirect: number,
   // DNS 查询时间
-  lookupDomain: number,
+  lookup_domain: number,
   // 读取页面第一个字节的时间
   ttfb: number,
   // 内容加载完成的时间
   request: number,
   // 执行 onload 回调函数的时间
-  loadEvent: number,
+  load_event: number,
   // DNS 缓存时间
   appcache: number,
   // TCP 建立连接完成握手的时间
@@ -52,11 +52,11 @@ export default class Performance {
 
       //【重要】页面加载完成的时间
       //【原因】这几乎代表了用户等待页面可用的时间
-      loadPage: t.loadEventEnd - t.navigationStart,
+      load_page: t.loadEventEnd - t.navigationStart,
 
       //【重要】解析 DOM 树结构的时间
       //【原因】反省下你的 DOM 树嵌套是不是太多了！
-      domReady: t.domComplete - t.responseEnd,
+      dom_ready: t.domComplete - t.responseEnd,
 
       //【重要】重定向的时间
       //【原因】拒绝重定向！比如，http://example.com/ 就不该写成 http://example.com
@@ -64,7 +64,7 @@ export default class Performance {
 
       //【重要】DNS 查询时间
       //【原因】DNS 预加载做了么？页面内是不是使用了太多不同的域名导致域名查询的时间太长？
-      lookupDomain: t.domainLookupEnd - t.domainLookupStart,
+      lookup_domain: t.domainLookupEnd - t.domainLookupStart,
 
       //【重要】读取页面第一个字节的时间
       //【原因】这可以理解为用户拿到你的资源占用的时间，加异地机房了么，加CDN 处理了么？加带宽了么？加 CPU 运算速度了么？
@@ -76,7 +76,7 @@ export default class Performance {
 
       //【重要】执行 onload 回调函数的时间
       //【原因】是否太多不必要的操作都放到 onload 回调函数里执行了，考虑过延迟加载、按需加载的策略么？
-      loadEvent: t.loadEventEnd - t.loadEventStart,
+      load_event: t.loadEventEnd - t.loadEventStart,
 
       // DNS 缓存时间
       appcache: t.domainLookupStart - t.fetchStart,

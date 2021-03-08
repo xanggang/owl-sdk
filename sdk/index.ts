@@ -3,7 +3,7 @@ import Device from './Device'
 import Performance from './Performance'
 import ErrorHandle from "./ErrorHandle"
 import page from '../package.json'
-
+import axios from 'axios'
 export interface ILogSdkOptions {
   uploadHost: string
   errorWhiteList?: string[]

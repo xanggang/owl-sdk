@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="dist/main.js"></script>
+</head>
+<body>
+
+<button id="butt">send</button>
+</body>
+
+
+<script>
+  let a = new OwlSdk({
+    apiKey: '111',
+    uploadHost: 'www.baidu.cqw'
+  })
+
+  document.getElementById('butt').onclick = function () {
+    a.send()
+  }
+</script>
+</html>
