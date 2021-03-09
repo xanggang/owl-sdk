@@ -55,6 +55,8 @@ function _enhanceEventWithInitialFrame(event: Event, url: any, line: any, column
   event.exception.values[0] = event.exception.values[0] || {};
   event.exception.values[0].stacktrace = event.exception.values[0].stacktrace || {};
   event.exception.values[0].stacktrace.frames = event.exception.values[0].stacktrace.frames || [];
+  const firstFrames =  event.exception.values[0].stacktrace.frames[0] || {}
+  event.exception.transaction = firstFrames.filename
 
   const colno = isNaN(parseInt(column, 10)) ? undefined : column;
   const lineno = isNaN(parseInt(line, 10)) ? undefined : line;

@@ -61,6 +61,7 @@ export interface Event {
   fingerprint?: string[];
   exception?: {
     values?: Exception[];
+    transaction?: string;
   };
   stacktrace?: Stacktrace;
   breadcrumbs?: Breadcrumb[];

@@ -119,10 +119,13 @@ export function prepareFramesForEvent(stack: TraceKitStackFrame[]): StackFrame[]
 
 export function eventFromStacktrace(stacktrace: TraceKitStackTrace): Event {
   const exception = exceptionFromStacktrace(stacktrace);
-
+  exception.stacktrace = exception.stacktrace || []
+  const frames = exception.stacktrace[0] || {}
+  const filename = frames.filename
   return {
     exception: {
       values: [exception],
+      transaction: filename
     },
   };
 }
