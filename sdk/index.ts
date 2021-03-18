@@ -18,6 +18,7 @@ export default class {
   apiKey = ''
   upload: Upload
   device: Device
+  errorHandle: ErrorHandle
 
 
   constructor(options: ILogSdkOptions) {
@@ -30,7 +31,7 @@ export default class {
     this.upload = new Upload(options.uploadHost, this.apiKey)
     this.device = new Device(this.upload)
     new Performance(this.upload)
-    new ErrorHandle(this.upload)
+    this.errorHandle = new ErrorHandle(this.upload)
   }
 
   checkOption (options: ILogSdkOptions) {
@@ -40,5 +41,9 @@ export default class {
     if (!options.uploadHost) {
       throw new Error('请填写正确的上传路径')
     }
+  }
+
+  emitVueError (error: any, vm: any) {
+    this.errorHandle.vueHandler(error, vm)
   }
 }

@@ -4,6 +4,10 @@ import globalOnHttpXHRHandler from './globalOnHttpXHRHandler'
 import UserBehavior from '../UserBehavior'
 import Upload from "../Upload";
 import Device from '../Device'
+import { computeStackTrace } from './util/tracekit'
+import {
+  eventFromStacktrace
+} from './util/utils'
 
 export default class ErrorHandle {
   upload: Upload
@@ -64,5 +68,11 @@ export default class ErrorHandle {
       if (res.url.includes(this.upload.uploadHost)) return
       this.formatData(res, 'api')
     })
+  }
+
+  public vueHandler(err: any, vm: any) {
+    const event = eventFromStacktrace(computeStackTrace(err as Error));
+    console.log(event);
+    this.formatData(event)
   }
 }

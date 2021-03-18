@@ -14,6 +14,7 @@ interface IUAResponse {
   },
   engine: {
     name: string,
+    version: Version
   },
   os: {
     name: string,
@@ -27,15 +28,15 @@ interface IUAResponse {
 }
 
 interface IDeviceInfo {
-  system?: string
-  system_version?: string
-  browser_type?: string
-  browser_name?: string
-  browser_version?: string
-  browser_core?: string
+  device_browser_name?: string;
+  device_browser_version?: string;
+  device_engine_name?: string;
+  device_engine_version?: string;
+  device_os_name?: string;
+  device_os_version?: string;
 }
 
-/**
+/**msg?.en
  * 上传设备信息
  */
 export default class Device {
@@ -53,25 +54,26 @@ export default class Device {
     if (window.navigator && window.navigator.userAgent) {
       const device: IUAResponse = new UA(window.navigator.userAgent)
 
-      const system = device?.os?.name
+      const device_os_name =  device?.os?.name
       // 操作系统版本
-      const system_version = device?.os.version?.original
-      // 浏览器类型
-      const browser_type = device?.browser?.channel
+      const device_os_version = device?.os.version?.original
       // 浏览器名称
-      const browser_name = device?.browser?.name
+      const device_browser_name = device?.browser?.name
       // 浏览器版本
-      const browser_version = device?.browser?.version.original
+      const device_browser_version = device?.browser?.version?.original
       // 浏览器核心
-      const browser_core = device?.engine?.name
+      const device_engine_name = device?.engine?.name
+
+      const device_engine_version = device?.engine?.version?.original
+
 
       return {
-        system,
-        system_version,
-        browser_type,
-        browser_name,
-        browser_version,
-        browser_core
+        device_browser_name,
+        device_browser_version,
+        device_engine_name,
+        device_engine_version,
+        device_os_name,
+        device_os_version
       }
     }
     return null

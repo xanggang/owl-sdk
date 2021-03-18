@@ -119,8 +119,9 @@ export function prepareFramesForEvent(stack: TraceKitStackFrame[]): StackFrame[]
 
 export function eventFromStacktrace(stacktrace: TraceKitStackTrace): Event {
   const exception = exceptionFromStacktrace(stacktrace);
-  exception.stacktrace = exception.stacktrace || []
-  const frames = exception.stacktrace[0] || {}
+  exception.stacktrace = exception.stacktrace || {}
+  exception.stacktrace.frames = exception.stacktrace.frames || []
+  const frames = exception.stacktrace.frames[0] || {}
   const filename = frames.filename
   return {
     exception: {
