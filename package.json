@@ -1,10 +1,11 @@
 {
   "name": "owl-util-sdk",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "description": "",
-  "main": "dist/main.js",
+  "main": "dist/vue.js",
   "scripts": {
     "build": "webpack --mode production --config scripts/webpack.config.dev.js",
+    "dev": "webpack-dev-server --config scripts/webpack.config.dev.js",
     "lint": "eslint --ext .ts sdk"
   },
   "author": "",
@@ -19,8 +20,9 @@
     "ts-loader": "^8.0.17",
     "typescript": "^4.2.3",
     "ua-device": "^0.1.10",
-    "webpack": "^5.24.3",
-    "webpack-cli": "^4.5.0"
+    "webpack": "^5.26.3",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "^3.11.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.16.1",

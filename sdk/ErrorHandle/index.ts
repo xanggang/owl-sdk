@@ -1,6 +1,7 @@
 import globalOnErrorHandler from './globalOnErrorHandler'
 import globalOnUnhandledRejectionHandler from './globalOnUnhandledRejectionHandler'
 import globalOnHttpXHRHandler from './globalOnHttpXHRHandler'
+import globalVueErrorHandler from './globalVueErrorHandler'
 import UserBehavior from '../UserBehavior'
 import Upload from "../Upload";
 import Device from '../Device'
@@ -71,8 +72,7 @@ export default class ErrorHandle {
   }
 
   public vueHandler(err: any, vm: any) {
-    const event = eventFromStacktrace(computeStackTrace(err as Error));
-    console.log(event);
+    const event = globalVueErrorHandler(err, vm)
     this.formatData(event)
   }
 }

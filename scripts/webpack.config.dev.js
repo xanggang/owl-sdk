@@ -1,16 +1,18 @@
 const path = require('path')
 const webpack = require('webpack')
 // const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const isDev = process.env.NODE_ENV =='development'
-// const devServer = require('./webpack-dev-server')
+const devServer = require('./webpack-dev-server')
 
 const devConfig = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
-  entry: [
-    path.join(__dirname, '../sdk/index.ts')
-  ],
+  entry: {
+    main: path.join(__dirname, '../sdk/index.ts'),
+    'plugins/vue': path.join(__dirname, '../sdk/vue.ts'),
+    'plugins/browser': path.join(__dirname, '../sdk/browser.ts'),
+  },
   output: {
     filename: '[name].js',
     path: path.join(__dirname, '../dist'),
@@ -43,12 +45,15 @@ const devConfig = {
   plugins: [
     // new webpack.HotModuleReplacementPlugin(),
     // new ProgressBarPlugin({ summary: false }),
-    // new HtmlWebpackPlugin({
-    //   title: 'wui',
-    //   filename: 'index.html',
-    //   template: path.join(__dirname, '../src/index.html'),
-    //   inject: true
-    // })
+    new HtmlWebpackPlugin({
+      title: 'wui',
+      filename: 'index.html',
+      template: path.join(__dirname, '../index.html'),
+      inject: true
+    })
   ]
 }
+
+devConfig.devServer = devServer.devServer
+
 module.exports = devConfig
