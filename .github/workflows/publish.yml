@@ -10,7 +10,7 @@ name: publish-npm
 
 on:
   push:
-    branches: [master]
+    branches: [master, dev]
 
 jobs:
   install:
@@ -38,7 +38,8 @@ jobs:
 
 
     - name: publish
+      uses: JS-DevTools/npm-publish@v1
       run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      with:
+        token: ${{secrets.NPM_TOKEN}}
 
