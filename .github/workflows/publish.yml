@@ -34,7 +34,7 @@ jobs:
 
 
     - name: build
-      run: build
+      run: npm run build
 
 
     - name: publish
