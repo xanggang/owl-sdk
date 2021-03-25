@@ -121,12 +121,13 @@ export function eventFromStacktrace(stacktrace: TraceKitStackTrace): Event {
   const exception = exceptionFromStacktrace(stacktrace);
   exception.stacktrace = exception.stacktrace || {}
   exception.stacktrace.frames = exception.stacktrace.frames || []
-  const frames = exception.stacktrace.frames[0] || {}
-  const filename = frames.filename
+  const length = exception.stacktrace.frames.length
+  const lastFrames = exception.stacktrace.frames[length - 1] || {}
+
   return {
     exception: {
       values: [exception],
-      transaction: filename
+      transaction: lastFrames.filename
     },
   };
 }

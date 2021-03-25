@@ -7,7 +7,6 @@ const devServer = require('./webpack-dev-server')
 
 const devConfig = {
   mode: 'development',
-  devtool: 'cheap-module-source-map',
   entry: {
     main: path.join(__dirname, '../sdk/index.ts'),
     'plugins/vue': path.join(__dirname, '../sdk/vue.ts'),
