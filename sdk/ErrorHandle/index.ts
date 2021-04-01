@@ -5,10 +5,6 @@ import globalVueErrorHandler from './globalVueErrorHandler'
 import UserBehavior from '../UserBehavior'
 import Upload from "../Upload";
 import Device from '../Device'
-import { computeStackTrace } from './util/tracekit'
-import {
-  eventFromStacktrace
-} from './util/utils'
 
 export default class ErrorHandle {
   upload: Upload

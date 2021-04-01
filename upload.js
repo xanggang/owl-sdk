@@ -7,12 +7,7 @@ const args = process.argv
 args.splice(0, 2)
 
 const [ROOTPATH] = args
-// 得到配置
-// process.env.OPERATOR = 'dev'
-// process.env.PASSWORD = 'maintodev'
-// process.env.BUCKET = 'img-mainto-dev'
-// process.env.ROOTPATH = '/showpic-external-uploader-launcher/'
-// process.env.SOURCEFOLDER = 'dist_electron'
+
 
 const { OPERATOR, PASSWORD, BUCKET, SOURCEFOLDER } = process.env
 

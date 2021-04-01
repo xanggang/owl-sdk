@@ -1,6 +1,6 @@
 {
   "name": "owl-util-sdk",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "dist/vue.js",
   "scripts": {
