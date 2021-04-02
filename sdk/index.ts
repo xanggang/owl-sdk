@@ -13,7 +13,7 @@ export default class LogSdk {
   version: string = page.version
   uploadHost = ''
   http: any
-  errorWhiteList: any[] = []
+  errorWhiteList: string[] = []
   apiKey = ''
   upload: Upload
   device: Device
@@ -30,7 +30,7 @@ export default class LogSdk {
     this.upload = new Upload(options.uploadHost, this.apiKey)
     this.device = new Device(this.upload)
     new Performance(this.upload)
-    this.errorHandle = new ErrorHandle(this.upload)
+    this.errorHandle = new ErrorHandle(this.upload, this.errorWhiteList)
   }
 
   checkOption (options: ILogSdkOptions) {
@@ -44,5 +44,9 @@ export default class LogSdk {
 
   emitVueError (error: any, vm: any) {
     this.errorHandle.vueHandler(error, vm)
+  }
+
+  emitCustomizeError (error: Error) {
+    this.errorHandle.customizeErrorHandler(error)
   }
 }

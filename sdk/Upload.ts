@@ -1,10 +1,6 @@
 import axios from 'axios'
 import cache from './Cache'
 
-interface IErrorMap {
-  [key: string]: boolean
-}
-
 export default class Upload {
 
   public apiKey: string
@@ -14,9 +10,6 @@ export default class Upload {
   // 额外附加的数据
   public metadata: any
 
-  // 已经收集过的数据
-  public errorMap:IErrorMap = {}
-
   // 需要发送的错误内容
   public queue: any[] = []
 
@@ -24,7 +17,7 @@ export default class Upload {
 
   timer: any = -1
 
-  public constructor(uploadHost: string, apiKey: string, metadata?: {}) {
+  public constructor(uploadHost: string, apiKey: string, metadata?: any) {
     this.uploadHost = uploadHost
     this.apiKey = apiKey
     this.metadata = metadata;

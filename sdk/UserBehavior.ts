@@ -25,7 +25,7 @@ export default class UserBehavior {
     }, true)
   }
 
-  onclickCallback (e: any) {
+  onclickCallback (e: MouseEvent) {
     const clickInfo = this.getClickInfo(e)
 
     if (clickInfo.router === this.lastPath?.path) {
@@ -45,7 +45,7 @@ export default class UserBehavior {
     }
   }
   /**
-   * 获取点击时间信息
+   * 获取点击事件信息
    * @param e
    */
   getClickInfo (e: any) {
@@ -54,10 +54,10 @@ export default class UserBehavior {
       happenTime: new Date().getTime(),
       simpleUrl: window.location.href.split('?')[0],
       router: window.location.href.split('?')[0].split('/#/')[1] ? window.location.href.split('?')[0].split('/#/')[1] : '/',
-      className: e.target.className,
-      placeholder: e.target.placeholder || '',
-      inputValue: e.target.value || '',
-      tagName: e.target.tagName,
+      className: e.target?.className,
+      placeholder: e.target?.placeholder || '',
+      inputValue: e.target?.value || '',
+      tagName: e.target?.tagName,
       innerText: e.target?.innerText?.replace(/\s*/g, "") || ''
     }
   }

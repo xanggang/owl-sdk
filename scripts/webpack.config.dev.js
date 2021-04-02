@@ -1,8 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
-// const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const isDev = process.env.NODE_ENV =='development'
 const devServer = require('./webpack-dev-server')
 
 const devConfig = {
@@ -40,17 +36,7 @@ const devConfig = {
         loader: 'ts-loader'
       }
     ]
-  },
-  plugins: [
-    // new webpack.HotModuleReplacementPlugin(),
-    // new ProgressBarPlugin({ summary: false }),
-    new HtmlWebpackPlugin({
-      title: 'wui',
-      filename: 'index.html',
-      template: path.join(__dirname, '../index.html'),
-      inject: true
-    })
-  ]
+  }
 }
 
 devConfig.devServer = devServer.devServer
