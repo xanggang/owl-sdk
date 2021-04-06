@@ -40,7 +40,7 @@ export default class Upload {
   send () {
     if (!this.queue.length) return
     axios.post(this.uploadHost, this.queue, {
-      headers: { apiKey: this.apiKey }
+      headers: { 'Owl-Api-Key' : this.apiKey }
     })
     this.queue = []
   }
