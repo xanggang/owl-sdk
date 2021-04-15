@@ -1,4 +1,3 @@
-
 import LogSdk from './index'
 
 class LogSdkVue extends LogSdk {

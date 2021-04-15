@@ -36,7 +36,7 @@ interface IDeviceInfo {
   device_os_version?: string;
 }
 
-/**msg?.en
+/** msg?.en
  * 上传设备信息
  */
 export default class Device {

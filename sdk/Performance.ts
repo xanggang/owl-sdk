@@ -86,7 +86,7 @@ export default class Performance {
     }
 
     // 兼容数据异常情况
-    if (times.request < 100000) {
+    if (times.request > 10000) {
       this.upload.add({
         type: 'performance',
         ...times
