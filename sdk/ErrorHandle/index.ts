@@ -68,7 +68,7 @@ export default class ErrorHandle {
     const oldXHR = window.XMLHttpRequest
     const that = this
     window.XMLHttpRequest = globalOnHttpXHRHandler(oldXHR, (res) => {
-      if (res.url.includes(this.upload.uploadHost)) return
+      if (res?.url?.includes(this.upload.uploadHost)) return
       this.formatData(res, 'api')
     })
   }
