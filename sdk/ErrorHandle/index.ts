@@ -25,7 +25,7 @@ export default class ErrorHandle {
   }
 
   public formatData (res: any, type = 'error') {
-    const errorValue = res.exception.values?.[0]?.value
+    const errorValue = res?.exception?.values?.[0]?.value
     if (this.errorWhiteList.includes(errorValue)) return
     const data = Object.assign({}, res, {
       device: this.deviceInfo,
@@ -68,6 +68,8 @@ export default class ErrorHandle {
     const oldXHR = window.XMLHttpRequest
     const that = this
     window.XMLHttpRequest = globalOnHttpXHRHandler(oldXHR, (res) => {
+      console.log(res)
+      if (!res?.url) return
       if (res?.url?.includes(this.upload.uploadHost)) return
       this.formatData(res, 'api')
     })

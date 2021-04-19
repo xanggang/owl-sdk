@@ -32,7 +32,7 @@ export default function globalOnHttpXHRHandler (oldXHR: any, cb: (d: any) => voi
       if (!ev?.target?.responseURL) return
       const headerString = JSON.stringify(headers)
       const request = JSON.stringify(requestObj)
-      const url = requestObj.url
+      const url = requestObj?.url?.url
       const responseText = ev?.target?.responseText
       const requestTime = +new Date()
       cb({
